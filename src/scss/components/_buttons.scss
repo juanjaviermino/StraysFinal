@@ -1,0 +1,132 @@
+// @import-only
+.button{
+    &--action{
+        cursor: pointer;
+        text-transform: uppercase;
+        @include font-style(14px, 'semi-bold', $strays-white, $title-font);
+        border: 0;
+        background-color: $strays-color;
+        min-height: 35px;
+        border-radius: 10px;
+        width: 80%;
+
+        &:hover{
+            background-color: $strays-secondary-color;
+        }
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    &--common{
+        cursor: pointer;
+        @include font-style(14px, 'thin', $strays-white, $title-font);
+        border: 0;
+        background-color: $strays-color;
+        min-height: 35px;
+        border-radius: 10px;
+        width: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin: 0;
+        margin: 0 !important;
+
+        &:hover{
+            background-color: $strays-secondary-color;
+        }
+
+        &:focus{
+            outline: none;
+        }
+
+        &:disabled{
+            background-color: $neutral-gray-light;
+            color: $strays-white-t;
+            &:hover{
+                cursor: default;
+            }
+        }
+    }
+
+    &--rounded-icon{
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
+        border-radius: 15px;
+        border: 0;
+        @include flex(center, center);
+        margin: 0 !important;
+        color: white; 
+        background-color: $strays-color;
+
+        &:hover{
+            cursor: pointer;
+            background-color: $strays-secondary-color;
+        }
+
+        &:focus{
+            outline: none;
+        }
+
+    }
+
+    &--icon-text{
+        background-color: transparent;
+        border: 0;
+        @include flex-row(center, center);
+        gap: 10px;
+        border-radius: 10px;
+
+        &:hover{
+            background-color: $strays-secondary-color;
+            cursor: pointer;
+        }
+    }
+
+    &--microsoft{
+        margin: 0 !important;
+        height: 40px;
+        @include flex-row(center, center);
+        background-color: transparent;
+        border: 0;
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        &:focus{
+            outline: none;
+        }
+
+        span{
+            @include font-style(14px, 'reg', $strays-white, $body-font);
+        }
+    }
+}
+
+.secondary{
+    background-color: $strays-color-blue;
+    &:hover{
+        background-color: $strays-color-blue-light;
+    }
+
+    &:focus{
+        outline: none;
+    }
+}
+
+.alert{
+    background-color: $alert-color;
+    &:hover{
+        background-color: $alert-color-light;
+    }
+
+    &:focus{
+        outline: none;
+    }
+}
+

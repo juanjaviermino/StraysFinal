@@ -1,0 +1,150 @@
+// @import-only
+.table{
+    position: relative;
+    min-width: 90%;
+    max-width: 100%;
+    max-height: 80vh;
+    border: 0 ;
+    border-radius: 10px;
+    overflow: hidden;
+
+    td{
+        font-family: var(--body-font);
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    span{
+        font-family: var(--body-font);
+        font-size: 12px;
+    }
+
+    &--colors{
+        th{
+            padding: 5px 10px;
+        }
+    }
+}
+
+.table-utility{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.search-input-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-icon{
+    position: absolute;
+    z-index: 1;
+    left: 10px;
+}
+
+.search-input {
+    height: 30px;
+    border-radius: 15px;
+    font-family: var(--body-font);
+    font-size: 10px;
+    padding-left: 30px;
+}
+
+.rounded-icon-btn {
+    border-radius: 15px;
+    background-color: $strays-color;
+    border-width: 0;
+    height: 30px;
+    width: 30px;
+    @include flex(center, center);
+    padding: 0;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0;
+
+    &:hover{
+        background-color: $strays-secondary-color;
+    }
+
+    &:focus{
+        outline: none;
+        border-width: 0;
+    }
+
+    &:active{
+        transform: scale(0.90);
+    }
+}
+
+#dwn-excel {
+    background-color: $excel-color;
+
+    &:hover{
+        background-color: $excel-color-light;
+    }
+}
+
+#cancel {
+    background-color: $neutral-gray;
+}
+
+.spinner {
+    border: 4px solid rgba(0,0,0,.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: $strays-color;
+    animation: spin 1s linear infinite;
+}
+
+.spinner-container {
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(101, 105, 111, 0.7);
+    width: 100%;
+    height: 100%;
+    @include flex(center, center);
+}
+
+.stale-data-msg{
+    background-color: $strays-color-blue;
+    @include flex(center, center);
+    gap: 10px;
+    padding: 2px; 
+}
+
+.stale-data-msg span {
+    color: white;
+    font-family: $body-font;
+}
+
+.colorBodyTemplate{
+    display: flex;
+    align-items: center;
+    height: 20px;
+    width: 100%;
+    justify-content: center;
+
+    &__color{
+        min-height: 20px;
+        height: 20px;
+        width: 80%;
+        border-radius: 5px;
+        background-color: red;
+    }
+}
+
+.actionsBodyTemplate{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button{
+        min-height: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

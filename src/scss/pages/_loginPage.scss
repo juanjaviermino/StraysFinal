@@ -1,0 +1,27 @@
+.loginpage{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 10% 30% 60%;
+
+    &__message{
+        @include grid-child(1, 2);
+        @include flex-column(center, center);
+
+        h2 {
+            margin: 0;
+            @include font-style(40px, 'reg', $strays-white, $fancy-font);
+            text-align: center;
+        }
+
+        p {
+            margin: 20px 0;
+            @include font-style(16px, 'light', $strays-white, $body-font);
+            text-align: center;
+        }
+    }
+
+    &__form{
+        @include grid-child(1, 3);
+        @include flex(center, center);
+    }
+}

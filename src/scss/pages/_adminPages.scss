@@ -1,0 +1,37 @@
+.adminpage{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 55% 5% 40%;
+    grid-template-rows: 50px auto;
+
+    &__header{
+        background-color: $strays-white-t;
+        border-radius: 0 0 10px 10px;
+        @include grid-child(1,1);
+        grid-column: 1 / span 3; 
+        @include font-style(20px, 'light', $strays-white, $body-font);
+        @include flex(start, center);
+        padding-left: 20px;
+    }
+
+    &__form{
+        @include grid-child(2,3);
+        @include flex(center, center);
+    }
+
+    &__table{
+        padding: 25px;
+        @include grid-child(2,1);
+        @include flex(center, center);
+
+        &--users{
+            @include grid-child(2,1);
+            grid-column: 1 / span 3;
+            @include flex(center, start);
+            margin-top: 50px;
+        }
+    }
+
+
+    
+}

@@ -1,0 +1,22 @@
+// @import-only
+.fs{
+    &--logo{
+            @include font-style(20px, 'bold', $strays-white, $title-font);
+    } 
+
+    &--navitem{
+            @include font-style(14px, 'reg', $strays-white, $body-font);
+    }
+
+    &--logo-landing{
+        @include font-style(38px, 'bold', $strays-white, $fancy-font);
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    &--slogan-landing{
+        @include font-style(20px, 'light', $strays-white, $body-font);
+        text-align: center;
+        margin: 10px 0;
+    }
+}

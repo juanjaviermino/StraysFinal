@@ -1,0 +1,86 @@
+.p-column-filter-overlay span {
+    font-family: var(--poppins);
+    font-size: 12px;
+}
+
+.p-column-filter-overlay input {
+    font-family: var(--poppins);
+    font-size: 12px;
+    height: 30px;
+}
+
+.p-dropdown-items{
+    padding: 5px;
+}
+
+.p-dropdown-item {
+    font-family: var(--poppins);
+    font-size: 12px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.p-paginator-bottom button {
+    width: 30px;
+    min-width: 20px;
+    height: 30px;
+    min-height: 20px;
+    border-radius: 50%;
+    margin: 0 2.5px;
+    font-family: var(--poppins);
+    font-size: 12px;
+}
+
+.p-dropdown-label {
+    font-family: var(--poppins);
+    font-size: 12px;
+}
+
+.p-dropdown {
+    height: 30px;
+    align-items: center;
+}
+
+.p-column-filter-remove-button {
+    gap: 10px;
+    font-family: var(--poppins);
+    font-size: 12px;
+    color: var(--pdf-color); 
+}
+
+.p-column-filter-add-button {
+    gap: 10px;
+    font-family: var(--poppins);
+    font-size: 12px;
+    color: var(--main-blue);
+}
+
+.p-column-filter-add-rule{
+    padding: 5px;
+}
+
+.p-column-filter-buttonbar {
+    padding: 5px 5px 15px 5px;
+    justify-content: space-around;
+}
+
+.p-column-filter-constraint{
+    padding: 10px 20px; 
+}
+
+.p-column-header-content{
+    height:20px;
+}
+
+.p-datatable-header{
+    border-width: 0;
+}
+
+.p-paginator-bottom{
+    border-width: 0;
+}
+
+.p-column-filter-menu-button{
+    padding: 0;
+}

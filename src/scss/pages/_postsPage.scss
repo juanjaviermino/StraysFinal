@@ -1,0 +1,96 @@
+.postspage{
+    display: grid;
+    grid-template-rows: 50px auto;
+    height: 100%;
+    width: 100%;
+
+    &__actions{
+        @include grid-child(1, 1);
+        height: 100%;
+        width: 100%;
+        background-color: $strays-white-t;
+        border-radius: 0 0 10px 10px;
+        @include font-style(20px, 'light', $strays-white, $body-font);
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 20px;
+        padding-left: 10px;
+
+        &--overlay{
+            position: absolute;
+            height: 50px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.892);
+            z-index: 1000;
+            left: 0;
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &-item{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-width: 150px;
+
+            p{
+                @include font-style(12px, 'semi-bold', $strays-white, $body-font);
+            }
+        }
+
+        input{
+            height: 60%;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            padding: 10px;
+        }
+
+        p{
+            @include font-style(12px, 'semi-bold', $strays-white, $body-font);
+        }
+    }
+
+    &__posts-space{
+        @include grid-child(2, 1);
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+
+    &__posts{
+        @include grid-child(1, 1);
+        height: calc(100vh - 90px);
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        scrollbar-width: 0;
+        align-items: center;
+        gap: 50px;
+    }
+
+    &__post{
+        height: 60vh;
+        width: 20vw;
+        flex: 0 0 auto;
+    }
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.postspage__posts::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.postspage__posts {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.postspage__posts > .postspage__post:first-child {
+    margin-top: 15px;
+}

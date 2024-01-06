@@ -1,0 +1,42 @@
+// Font imports
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gabarito:wght@400;500;600;700;800;900&family=Merriweather:wght@300;400;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+// Utils
+@import 'abstracts/animations';
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'utils/functions';
+
+// Base
+@import 'base/typography';
+
+// Layout
+@import 'layout/body';
+@import 'layout/root';
+@import 'layout/header';
+@import 'layout/backgrounds';
+
+// Components
+@import 'components/navbar';
+@import 'components/buttons';
+@import 'components/tables';
+@import 'components/form';
+@import 'components/spinner';
+@import 'components/dropdowns';
+@import 'components/fileuploader';
+@import 'components/colorpicker';
+@import 'components/post';
+@import 'components/switch';
+@import 'components/postviewer';
+@import 'components/chart';
+
+// Pages
+@import 'pages/landingPage';
+@import 'pages/loginPage';
+@import 'pages/adminPages';
+@import 'pages/createPostPage';
+@import 'pages/resultsPage';
+@import 'pages/postsPage';
+
+// Prime React
+@import 'primereact/clases';

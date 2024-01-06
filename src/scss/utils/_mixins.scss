@@ -1,0 +1,42 @@
+// @import-only
+@mixin flex($justify: null, $align: null) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin flex-row($justify: null, $align: null) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin flex-column($justify: null, $align: null) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin font-style($size: 14px, $weight: null, $color: black, $family: $body-font) {
+    font-family: $family;
+    font-size: $size; // Default font size is 14px if not specified
+    color: $color;
+    text-decoration: none;
+    // Default font weight is not set unless specified
+    @if $weight {
+        font-weight: if($weight == 'light', 300,
+                    if($weight == 'reg', 400,
+                    if($weight == 'med', 500,
+                    if($weight == 'semi-bold', 600,
+                    if($weight == 'bold', 700,
+                    if($weight == 'black', 800,
+                    null)))))); // Defaults to null if no matching case
+    }
+}
+
+@mixin grid-child($row: null, $column: null) {
+    grid-row: $row / span 1;
+    grid-column: $column / span 1;
+}
