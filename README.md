@@ -95,6 +95,6 @@ En esta fase final se realizó la implementación del Core del proyecto. Este co
 
 ### Diagrama de actividades del Core
 
-<img src="https://github.com/juanjaviermino/DiagramasStrays/blob/b073277d895b10aa0105df40a2cdeb4b61de5842/Diagrama%20de%20despliegue%20Minicore.png">
+<img src="https://github.com/juanjaviermino/StraysFinal/blob/4a73cae9fbe5d7f01c6b989d5dc30eed3c1a38bb/Diagrama%20de%20actividades%20core.jpg">
 
 En este diagrama de actividades se explica el flujo de trabajo del core final del proyecto.
