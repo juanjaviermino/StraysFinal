@@ -8,7 +8,9 @@
 - [2. Implementación de Login con urls protegidas](#2-implementación-de-login-con-urls-protegidas)
   - [Diagrama del workflow del login](#diagrama-del-workflow-del-login)
 - [3. Implementación de un ejercicio entre varias tablas (Mini core)](#3-implementación-de-un-ejercicio-entre-varias-tablas-mini-core)
-  - [Diagrama de despliegue de STRAYS](#diagrama-de-despliegue-de-strays)
+  - [Diagrama de despliegue de STRAYS (Mini Core)](#diagrama-de-despliegue-de-strays)
+- [4. Implementación del Core](#4-implementación-del-core)
+  - [Diagrama de actividades del Core](#diagrama-de-actividades-del-core)
 
 ## 0. Notas de actualización importantes (Cambios del proyecto en el tiempo)
 
@@ -78,8 +80,21 @@ En este diagrama se presenta el workflow del login realizado. El proceso es el s
 Para este ejercicio se buscaba crear tres tablas: usuarios (vendedores), productos y ventas. En la tabla de ventas de sebía guardar la fecha, el usuario que realizó la venta, el producto que vendió y cuánto vendio. Con estas tablas se debía obtener un resumen de ventas por vendedor, sumando sus ventas totales dentro de un rango de fechas. Para esto se debía crear una interfaz donde el usuario elija dos fechas y se genere la tabla de resumen. Una explicación más detallada, el ejercicio en funcionamiento y los ejemplos se encuentran en este video: [Mini Core | Juan Javier Miño Arboleda](https://www.youtube.com/watch?v=g0eV-DL43sc)
 
 
-### Diagrama de despliegue de STRAYS
+### Diagrama de despliegue de STRAYS (Mini Core)
 
 <img src="https://github.com/juanjaviermino/DiagramasStrays/blob/b073277d895b10aa0105df40a2cdeb4b61de5842/Diagrama%20de%20despliegue%20Minicore.png">
 
 En este diagrama de despliegue se muestra cómo fue desplegada mi aplicación. Para el frontend se utilizó Github Pages. Desde aquí se tuvo que hacer ciertas configuraciones para que el proyecto se arme con Vite desde github pages. Este front se comunica con el backend en Render.com, el cual utilizando la librería psycopg2 se conecta con una base de datos en PostgreSQL también alojada en Render.com. El ejercicio se completó utilizando métodos de SQalchemy que permiten hacer filtros y querys sin utilizar sentencias SQL directas, lo cual encapsula la comunicación. 
+
+## 4. Implementación del Core
+
+### Explicación del ejercicio
+
+En esta fase final se realizó la implementación del Core del proyecto. Este core consiste en poder comparar imágenes con un modelo de visión por computadora para así poder darle al usuario el top tres de posts que se asemejan más al que está buscando. Para esta fase la arquitectura del proyecto cambió un poco ya que se le sumó un microservicio que es el encargado de realizar la comparación de imagenes como tal. Además de desplegar todos los servicios en la nube (base de datos en GCP, backend y microservicio en Render y el frontend en Github Pages). El core y cómo funciona se explican de mejor manera en este video de la defensa del proyecto: [Defensa del proyecto final | Juan Javier Miño Arboleda](https://www.youtube.com/watch?v=g6TvRfjTtzs)
+
+
+### Diagrama de actividades del Core
+
+<img src="https://github.com/juanjaviermino/DiagramasStrays/blob/b073277d895b10aa0105df40a2cdeb4b61de5842/Diagrama%20de%20despliegue%20Minicore.png">
+
+En este diagrama de actividades se explica el flujo de trabajo del core final del proyecto.
