@@ -198,8 +198,9 @@ function PostsPage (props) {
 
     useEffect(()=>{
         console.log(searchParameters);
+        const url = makeUrl();
+        console.log('URL: ', url);
     },[searchParameters])
-
 
     return(
         <div className='postspage gradient-background2'>

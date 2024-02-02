@@ -9,11 +9,15 @@ import { FileUpload } from 'primereact/fileupload';
 import { OverlayPanel } from 'primereact/overlaypanel';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { Button } from 'primereact/button';
+import { Dialog } from 'primereact/dialog';
+import { Checkbox } from "primereact/checkbox";
 
 // Servicios
 import { useEspecies } from '../../services/useEspecies';
 import { usePosts } from '../../services/usePosts';
 import { useColors } from '../../services/useColors';
+import Map from './Map';
 
 const apiEndpoint = import.meta.env.VITE_APP_API;
 
@@ -40,8 +44,8 @@ function CreatePost () {
 
     const defaultNewPost = {
         tipo: '',
-        latitud: '-0.110619',
-        longitud: '-78.483092',
+        latitud: '',
+        longitud: '',
         descripcion: '',
         especieId: '',
         razaId: '',
@@ -82,6 +86,8 @@ function CreatePost () {
     const [selectedFile, setSelectedFile] = useState(null);
     const [currentSelectedColor, setCurrentSelectedColor] = useState(null);
     const [colorList, setColorList] = useState([]);
+    const [mapVisible, setMapVisible] = useState(false);
+    const [coordinatesExist, setCoordinatesExist] = useState(false);
 
     // Image cropping
 
@@ -581,7 +587,30 @@ function CreatePost () {
         setCroppedImageUrl(null);
         setAspect(1 / 1);
     }
-     
+
+    // ------------------------- Maps related functions ----------------------------------------------------------
+
+    useEffect(()=>{
+        if(!isEmptyValue(newPost.latitud) && !isEmptyValue(newPost.longitud)){
+            setCoordinatesExist(true);
+        } else{
+            setCoordinatesExist(false);
+        }
+        console.log(newPost);
+    }, [newPost])
+
+    const setCoordinates = (marker) =>{
+        const lat = marker.lat;
+        const lng = marker.lng;
+
+        if(lat && lng){
+            setNewPost(prev => ({
+                ...prev,
+                latitud: lat.toFixed(6), 
+                longitud: lng.toFixed(6)
+            }));
+        }
+    }
 
     return(
         <div className="postpage gradient-background2">
@@ -662,6 +691,15 @@ function CreatePost () {
                                         maxLength="1000"/>
                             </div>
                         </div>
+                        <hr></hr>
+                        <div style={{width: '100%', display: 'flex', flexDirection: 'column', gap: '5px', alignItems: 'center'}}>
+                            <label>Ubicación <span>*</span></label>
+                            <div style={{width: '100%', display: 'flex', alignItems: 'center'}}>
+                                <Button style={{borderRadius: '10px', fontSize: '14px', height: '35px', margin: '0'}} label="Ubicación" icon="pi pi-map-marker" onClick={() => setMapVisible(true)} />
+                                <span style={{fontFamily: 'roboto', color: 'white', fontSize: '12px', marginLeft: '20px' }}>¿Ubicación ingresada? (requerido)</span>
+                                <Checkbox style={{marginLeft: '10px'}} disabled onChange={e => setCoordinatesExist(e.checked)} checked={coordinatesExist}></Checkbox>
+                            </div>
+                        </div> 
                         <hr></hr>
                         <div className="form__fields--createpostEspecieInfo">
                             <div style={{width: '50%'}}>
@@ -782,6 +820,9 @@ function CreatePost () {
                         invalidFileSizeMessageDetail="La imagen es demasiado grande. El tamaño máximo es de 2MB" />
                 </div>
             </OverlayPanel>
+            <Dialog header="Ingresa la ubicación de la mascota" visible={mapVisible} style={{ width: '70vw', height: '70vh' }} onHide={() => setMapVisible(false)}>
+                <Map setCoordinates={setCoordinates}/>
+            </Dialog>
         </div>
     );
 }
