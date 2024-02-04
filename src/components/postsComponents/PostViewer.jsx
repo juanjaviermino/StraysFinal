@@ -96,7 +96,7 @@ function PostViewer (props) {
                                 <p>{`${post.usuario.name} ${post.usuario.lastname}`}</p>
                             </div>
                             <div className='postviewer__container__userinfo-item'>
-                                <p>{post.usuario.ciudad}, {post.fecha}</p>
+                                <p> {post.fecha}</p>
                             </div>
                         </div>
                         <div className='postviewer__container__header'>

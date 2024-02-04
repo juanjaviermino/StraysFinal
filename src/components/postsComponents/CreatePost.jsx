@@ -17,6 +17,7 @@ import { Checkbox } from "primereact/checkbox";
 import { useEspecies } from '../../services/useEspecies';
 import { usePosts } from '../../services/usePosts';
 import { useColors } from '../../services/useColors';
+import { useNotificaciones } from '../../services/useNotificaciones';
 import Map from './Map';
 
 const apiEndpoint = import.meta.env.VITE_APP_API;
@@ -34,6 +35,7 @@ function CreatePost () {
     const { especies, error: errorE, isLoading: isLoadingE, isValidating: isValidatingE, refresh: refreshE  } = useEspecies(); 
     const { createObject } = usePosts();
     const { createObject: createColor } = useColors();
+    const { createNotificacion } = useNotificaciones();
 
     // ------------------------ Utilidades ----------------------------
 
@@ -181,10 +183,6 @@ function CreatePost () {
                 });
                 data = await response.json();
                 resetStates();
-                // Espera 3 segundos y luego debe redirigir a la página de los matches
-                setTimeout(() => {
-                    navigate('/StraysFinal/post_results', { state: { postId: data.publicacionId } });  
-                }, 2000);
             } else{
                 throw new Error('Hubo un error al crear la publicación');
             }
@@ -209,6 +207,14 @@ function CreatePost () {
                         }
                     });
                 }
+                createNotificacion({
+                    latitud: newPost.latitud,
+                    longitud: newPost.longitud,
+                    publicacionId: data.publicacionId
+                })
+                setTimeout(() => {
+                    navigate('/StraysFinal/post_results', { state: { postId: data.publicacionId } });  
+                }, 3000);
             }
             setIsLoading(false);
         }
